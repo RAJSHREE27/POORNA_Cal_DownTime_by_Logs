@@ -17,15 +17,9 @@ public class CalculateTime {
 		JSONParser parser = new JSONParser();
 		try {
 			 FileReader reader = new FileReader("che_log.json");
-			 System.out.println(reader);
-			 System.out.println(parser);
 			 Object obj = parser.parse(reader);
-			 System.out.println("++++++++++++++++++++++++++++++++++++\n");
-			 System.out.println("\nsimple object  @@@ : "+obj);
-			 
 			 JSONArray jsarr = (JSONArray) obj;
-	         System.out.println("&&&&&& "+jsarr);
-	      
+	         
 	         HashMap<String , UserUpTime> user = new HashMap<String , UserUpTime>();
 	          
 	        for(Object o : jsarr) {
@@ -41,13 +35,12 @@ public class CalculateTime {
 	        			 name = name + logs.charAt(i);
 	        		 }
 	        		 
-	        	 if(logs.contains("by user \'"+name+"\'\n")) {
+	        	 if(logs.contains("by user \'"+name+"\'\n"))/* || logs.contains("\'admin\'")*/{
 	        		 if(!user.containsKey(name)) {
 	        			 
-	        			 System.out.println(name +" ---- "+ x + " Started ======== does not exist ");
-		        		 String time = (String)cloudData.get("time");
+	        			 String time = (String)cloudData.get("time");
 		        		 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		        		 SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd , HH:mm:ss");
+		        		 SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
 		        		 Date d = sdf.parse(time);
 		        		 String formattedTime = output.format(d);
 		        		 UserUpTime u = new UserUpTime(name);
@@ -56,14 +49,11 @@ public class CalculateTime {
 		        		 
 		        		 u.setStartTime(str);
 		        		 user.put(name, u);
-		        		 System.out.println(formattedTime +" ______________________\n");
-		        	
-	        	    }else {
-	        			 System.out.println(name +" ---- "+ x + " Started ++++++++  exist ");
 		        		 
+	        	    }else {
 	        			 String time = (String)cloudData.get("time");
 	        			 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		        		 SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd , HH:mm:ss");
+		        		 SimpleDateFormat output = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
 		        		 Date d = sdf.parse(time);
 		        		 String formattedTime = output.format(d);
 		        		 
@@ -80,8 +70,7 @@ public class CalculateTime {
 		        		
 		        		 u2.setStartTime(list1);
 	        			 user.put(name, u2);
-	        			 System.out.println(formattedTime +" ______________________\n");
-				        	
+	        			 	
 	        		}
 	            }
 	        }else if(logs.contains("\' stopped by user")) {
@@ -93,10 +82,9 @@ public class CalculateTime {
 	        	if(logs.contains("\'activity-checker\'\n")) {
 	        		 if(!user.containsKey(name2)) {
 	        			 
-        			     System.out.println(name2 +" ---- "+ x + " stopped ####### does not exist ");
-		        		 String time2 = (String)cloudData.get("time");
+        			     String time2 = (String)cloudData.get("time");
 		        		 SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		        		 SimpleDateFormat output2 = new SimpleDateFormat("yyyy-MM-dd , HH:mm:ss");
+		        		 SimpleDateFormat output2 = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
 		        		 Date d2 = sdf2.parse(time2);
 		        		 String formattedTime2 = output2.format(d2);
 		        		 
@@ -106,15 +94,11 @@ public class CalculateTime {
 		        		 
 		        		 u.setEndTime(str2);
 		        		 user.put(name2,u);
-		        		 System.out.println(formattedTime2 +" ______________________\n");
-		        	 
-	        	   }else {
-	        			 System.out.println(name2 +" ---- "+ x + " stopped ^^^^^^^^^^ exist ");
 		        		 
+	        	   }else {
 	        			 String time2 = (String)cloudData.get("time");
-		        		 System.out.println(time2);
 		        		 SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-		        		 SimpleDateFormat output2 = new SimpleDateFormat("yyyy-MM-dd , HH:mm:ss");
+		        		 SimpleDateFormat output2 = new SimpleDateFormat("yyyy-MM-dd | HH:mm:ss");
 		        		 Date d2 = sdf2.parse(time2);
 		        		 String formattedTime2 = output2.format(d2);
 		        		 
@@ -129,25 +113,23 @@ public class CalculateTime {
 		        		 }
 		        		
 		        		 u2.setEndTime(list2);
-		        		 System.out.println(formattedTime2 +" ______________________\n");
-			        	 
 		        		 user.put(name2, u2);
 	        		  }
 	        	   }
 		         }
 	       
 		       }
-	        //printing hashmap
+	        
 	        ArrayList<String> g = new ArrayList<String>();
         	ArrayList<String> h = new ArrayList<String>();
-        	
-	        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-	        for(String val : user.keySet()) {
+        	for(String val : user.keySet()) {
 	        	String key = val;
 	        	g = user.get(val).getStartTime();
 	        	h= user.get(val).getEndTime();
 	        	
 	        	System.out.println(key + " ~~~~~~ "+g+" ~~~~~ "+h);
+	        	
+	        	System.out.println("____________________________________________________");
 	        	
 	        }
 	        
