@@ -1,5 +1,0 @@
-[ 
-{"log":"2019-01-23 05:53:18,818[main]             [INFO ] [o.a.c.s.VersionLoggerListener 89]    - Server version:        Apache Tomcat/8.5.23\n","stream":"stdout","time":"2019-01-23T05:53:18.821559478Z"},
-{"log":"2019-01-23 05:53:18,821[main]             [INFO ] [o.a.c.s.VersionLoggerListener 91]    - Server built:          Sep 28 2017 10:30:11 UTC\n","stream":"stdout","time":"2019-01-23T05:53:18.822042299Z"},
-]
-
