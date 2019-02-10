@@ -36,7 +36,7 @@ public class CalculateTime  {
 	        			 name = name + logs.charAt(i);
 	        		 }
 	        		 
-	        	 if(logs.contains("by user \'"+name+"\'\n"))/* || logs.contains("\'admin\'")*/{
+	        	 if(logs.contains("by user \'"+name+"\'\n")){
 	        		 if(!user.containsKey(name)) {
 	        			 
 	        			 String time = (String)cloudData.get("time");
