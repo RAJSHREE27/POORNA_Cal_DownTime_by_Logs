@@ -16,15 +16,15 @@
 	    <groupId>com.googlecode.json-simple</groupId>
 	    <artifactId>json-simple</artifactId>
 	    <version>1.1.1</version>
-	</dependency>
+   </dependency>
 
 ````
  
  ## Flow
 
- ..* The JSON file is considered as the array of JSON Objects.
- ..* Each JSON object- logs are parsed to check if it is a valid start or end log or not.
- ..* Valid start log sample : 
+ * The JSON file is considered as the array of JSON Objects.
+ * Each JSON object- logs are parsed to check if it is a valid start or end log or not.
+ * Valid start log sample : 
 
 ````json
  
@@ -40,12 +40,12 @@
 ````json
  
  {
- 	"log":"2019-01-23 16:32:33,816[ceSharedPool-52]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 476]   - Workspace 'poorna/nilu' with id 'workspaceok2mizvju50cbc0c' stopped by user 'activity-checker'\n",
+ 	"log":"2019-01-23 16:32:33,816[ceSharedPool-52]  [INFO ] [o.e.c.a.w.s.WorkspaceRuntimes 476]   - Workspace 'poorna/nilu' with id    'workspaceok2mizvju50cbc0c' stopped by user 'activity-checker'\n",
  	"stream":"stdout",
  	"time":"2019-01-23T16:32:33.816812869Z"
  }
 
 ````
-..* The logs which are typically of the above types are considered.
-..* It is also assumed that no workspace can remain 'ON' for more than 8 hours a day.
-..* Every user has his/her own workspace. 
+* The logs which are typically of the above types are considered.
+* It is also assumed that no workspace can remain 'ON' for more than 8 hours a day.
+* Every user has his/her own workspace. 
