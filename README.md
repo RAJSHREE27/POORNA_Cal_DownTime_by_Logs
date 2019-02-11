@@ -8,7 +8,7 @@
 
  ## Maven Dependencies 
 
- Below mentioned are certain maven dependencies used in the application :
+ Below mentioned is the essential maven dependency used in the application :
 
 ````maven
    
@@ -35,7 +35,7 @@
  }
 
 ````
- ..* Valid stop log sample :
+ * Valid stop log sample :
 
 ````json
  
